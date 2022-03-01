@@ -23,3 +23,21 @@
 # Constraints:
 
 # 1 <= bad <= n <= 231 - 1
+
+
+# The isBadVersion API is already defined for you.
+# def isBadVersion(version: int) -> bool:
+
+class Solution:
+    def firstBadVersion(self, n: int) -> int:
+        # binary search nlogn
+        l = 1
+        h = n
+        while(l <= h):
+            m = (l+h)//2
+            if(l == h):
+                return l
+            elif(isBadVersion(m) == True):
+                h = m
+            else:
+                l = m+1
