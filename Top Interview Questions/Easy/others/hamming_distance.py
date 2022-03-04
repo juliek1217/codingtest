@@ -21,3 +21,12 @@
 # Constraints:
 
 # 0 <= x, y <= 231 - 1
+class Solution:
+    def hammingDistance(self, x: int, y: int) -> int:
+        n = x ^ y  # XOR
+        count = 0
+        while n is not 0:
+            if (n & 1) != 0:
+                count += 1
+            n = n >> 1
+        return count
